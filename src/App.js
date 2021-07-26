@@ -3,16 +3,32 @@ import axios from 'axios';
 
 function App() {
   const [emojisData, setEmojisData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetchEmojis() {
-      const res = await axios.get('https://run.mocky.io/v3/fe964130-70d0-430f-b839-e55081423c28');
+      setLoading(true);
 
-      console.log(res);
+      try {
+        const res = await axios.get('https://run.mocky.io/v3/fe964130-70d0-430f-b839-e55081423c28');
+
+        setEmojisData(res.data);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+
+        setError(true);
+        setLoading(false);
+      }
     }
 
     fetchEmojis();
   }, [])
+
+  console.log('loading ? ', loading);
+  console.log('error ? ', error);
+  console.log('emojisData ? ', emojisData);
 
   return (
     <div>
