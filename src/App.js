@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import Navbar from "./components/Navbar";
+import Container from "./components/Container";
+
 function App() {
   const [emojisData, setEmojisData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -29,13 +32,17 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>Hello, world!</h1>
+    <>
+      <Navbar />
 
-      {loading && <p>Loading....</p>}
-      {error && <p>Ooopsss....</p>}
-      {emojisData.length > 0 && <p>Emojis Data sukses!</p>}
-    </div>
+      <Container>
+        <h1>Hello, world!</h1>
+
+        {loading && <p>Loading....</p>}
+        {error && <p>Ooopsss....</p>}
+        {emojisData.length > 0 && <p>Emojis Data sukses!</p>}
+      </Container>
+    </>
   );
 }
 
