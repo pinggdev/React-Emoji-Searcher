@@ -15,5 +15,5 @@ export const filterEmojis = ({
     return false;
   });
 
-  return filteredEmojis.splice(0, 20);
+  return filteredEmojis.splice(0, maxResult);
 };
