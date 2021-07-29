@@ -3,6 +3,7 @@ import axios from "axios";
 
 import Navbar from "./components/Navbar";
 import Container from "./components/Container";
+import Input from "./components/Input";
 import Empty from "./components/Empty";
 import Emojis from "./components/Emojis";
 
@@ -38,7 +39,10 @@ function App() {
       <Navbar />
 
       <Container>
-        <h1>Hello, world!</h1>
+        <Input 
+          onChange={}
+          value={}
+        />
 
         {loading && <Empty text="Loading..." />}
         {error && <Empty text="Error!" />}
